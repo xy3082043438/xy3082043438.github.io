@@ -16,24 +16,25 @@
     <input type="text" v-model="message">
     <button @click="search">搜索</button>
   </div>
-</body>
-<script>
-  const { createApp } = Vue;
-  const app = createApp({
-    data() {
-      return {
-        message: ''
-      }
-    },
-    methods: {
-      search() {
-        if (this.message) {
-          window.location.href = `http://cn.bing.com/search?q=${encodeURIComponent(this.message)}`;
+
+  <script>
+    const { createApp } = Vue;
+    const app = createApp({
+      data() {
+        return {
+          message: ''
+        }
+      },
+      methods: {
+        search() {
+          if (this.message) {
+            window.location.href = `http://cn.bing.com/search?q=${encodeURIComponent(this.message)}`;
+          }
         }
       }
-    }
-  });
-  app.mount('#app');
-</script>
+    });
+    app.mount('#app');
+  </script>
+</body>
 
 </html>
