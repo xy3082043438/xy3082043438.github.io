@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>首页</title>
-  <link rel="stylesheet" href="./style/style.css">
-  <script src="./script/vue.global.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/vue.global.js"></script>
 </head>
 
 <body>
@@ -17,24 +17,7 @@
     <button @click="search">搜索</button>
   </div>
 
-  <script>
-    const { createApp } = Vue;
-    const app = createApp({
-      data() {
-        return {
-          message: ''
-        }
-      },
-      methods: {
-        search() {
-          if (this.message) {
-            window.location.href = `http://cn.bing.com/search?q=${encodeURIComponent(this.message)}`;
-          }
-        }
-      }
-    });
-    app.mount('#app');
-  </script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
