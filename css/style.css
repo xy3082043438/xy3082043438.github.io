@@ -29,7 +29,7 @@ body {
     }
 
     input[type="text"] {
-      width: calc(100% - 150px);
+      width: calc(100% - 245px);
       padding: 10px;
       margin: 10px;
       border: 1px solid #ccc;
