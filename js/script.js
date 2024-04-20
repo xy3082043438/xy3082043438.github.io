@@ -4,8 +4,7 @@ const {
 const app = createApp({
   data() {
     return {
-      message: '',
-      chat: ''
+      message: ''
     }
   },
   methods: {
