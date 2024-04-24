@@ -15,7 +15,7 @@ const app = createApp({
     },
     chat() {
       if (this.message) {
-        window.location.href = `http://47.120.50.212:8080/chatgpt?msg=${encodeURIComponent(this.message)}`;
+        window.location.href = `http://xyimg.xyz:8080/chatgpt?msg=${encodeURIComponent(this.message)}`;
       }
     }
   }
