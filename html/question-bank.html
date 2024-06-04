@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/question-bank.css">
+  <title>题库</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="navbar">
+      <a href="/">首页</a>
+      <a href="#primary">小学</a>
+      <a href="#middle">初中</a>
+      <a href="#high">高中</a>
+      <a href="#university">大学</a>
+      <a href="./html/question-bank.html" class="active">题库</a>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-button">全部题目</button>
+      <button class="filter-button">算法</button>
+      <button class="filter-button">数据结构</button>
+      <button class="filter-button">Shell</button>
+      <button class="filter-button">多线程</button>
+      <button class="filter-button">JavaScript</button>
+      <button class="filter-button">Pandas</button>
+    </div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>状态</th>
+            <th>题目</th>
+            <th>题号</th>
+            <th>通过率</th>
+            <th>难度</th>
+            <th>出题频率</th>
+          </tr>
+        </thead>
+        <tbody id="question-table">
+          <!-- 问题数据将通过JavaScript插入 -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="../js/question-bank.js"></script>
+</body>
+
+</html>
