@@ -65,7 +65,7 @@ const navbarLinks = document.querySelectorAll('.navbar a');
 navbarLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     // 检查是否是题库链接
-    if (link.getAttribute('href') === './html/question-bank.html') {
+    if (link.getAttribute('href') === './html/question-bank.html' || link.getAttribute('href') === './html/llm.html') {
       return;
     }
     e.preventDefault();
