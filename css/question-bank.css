@@ -56,6 +56,10 @@ body {
   background-color: #ddd;
 }
 
+#dafult {
+  background-color: #ddd;
+}
+
 .table-container {
   overflow-x: auto;
 }
