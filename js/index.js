@@ -64,6 +64,10 @@ showCourses('primary');
 const navbarLinks = document.querySelectorAll('.navbar a');
 navbarLinks.forEach(link => {
   link.addEventListener('click', (e) => {
+    // 检查是否是题库链接
+    if (link.getAttribute('href') === './html/question-bank.html') {
+      return;
+    }
     e.preventDefault();
     // 移除其他链接的active类
     navbarLinks.forEach(navLink => navLink.classList.remove('active'));
