@@ -1,19 +1,19 @@
 // 课程数据示例
 const courses = [{
     title: "人工智能入门",
-    img: "./img/e1.png",
+    img: "./img/e1.jpg",
     description: "适合小学学生的人工智能基础课程",
     category: "primary"
   },
   {
     title: "机器学习基础",
-    img: "./img/e2.png",
+    img: "./img/e2.jpg",
     description: "适合小学学生的机器学习入门课程",
     category: "primary"
   },
   {
     title: "Python编程",
-    img: "./img/e3.png",
+    img: "./img/e3.jpg",
     description: "适合小学学生的Python编程课程",
     category: "primary"
   },
