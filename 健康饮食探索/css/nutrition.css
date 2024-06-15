@@ -1,0 +1,44 @@
+    .content {
+      padding: 20px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .section-content {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    .video-container {
+      margin-top: 20px;
+    }
+
+    .video-container video {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+    }
+
+    .nutrition-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .nutrition-table th,
+    .nutrition-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .nutrition-table th {
+      background-color: #f2f2f2;
+    }
