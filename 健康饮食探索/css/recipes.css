@@ -1,0 +1,54 @@
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.recipe-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 280px;
+  background-color: #fff;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: auto;
+}
+
+.recipe-card-content {
+  padding: 15px;
+}
+
+.recipe-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.recipe-description {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.ingredients,
+.steps,
+.nutrition {
+  margin-bottom: 10px;
+}
+
+.ingredients ul,
+.steps ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.rating {
+  font-size: 1.2em;
+  color: #f39c12;
+}
+
+.rating span {
+  margin-left: 5px;
+}
