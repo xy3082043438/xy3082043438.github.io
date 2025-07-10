@@ -1,1 +1,467 @@
-<!DOCTYPE html><html><body><h1>你好</h1></body></html>
+<!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>我的个人博客</title>
+        <style>
+            :root {
+                --primary-color: #4a89dc;
+                --secondary-color: #5d9cec;
+                --dark-color: #2c3e50;
+                --light-color: #f5f7fa;
+                --text-color: #333333;
+                --light-text: #767676;
+                --font-main: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            }
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: var(--font-main);
+                line-height: 1.6;
+                color: var(--text-color);
+                background-color: #f8f9fa;
+            }
+            
+            a {
+                text-decoration: none;
+                color: var(--primary-color);
+                transition: color 0.3s ease;
+            }
+            
+            a:hover {
+                color: var(--secondary-color);
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            
+            /* 导航栏样式 */
+            header {
+                background-color: white;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+            
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 0;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: var(--dark-color);
+            }
+            
+            .nav-links {
+                display: flex;
+                list-style: none;
+            }
+            
+            .nav-links li {
+                margin-left: 30px;
+            }
+            
+            .nav-links a {
+                color: var(--dark-color);
+                font-weight: 500;
+            }
+            
+            .nav-links a:hover {
+                color: var(--primary-color);
+            }
+            
+            .menu-toggle {
+                display: none;
+                cursor: pointer;
+                font-size: 1.5rem;
+            }
+            
+            /* 首页横幅 */
+            .hero {
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                color: white;
+                text-align: center;
+                padding: 80px 20px;
+                margin-bottom: 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+                max-width: 700px;
+                margin: 0 auto 30px;
+                opacity: 0.9;
+            }
+            
+            .btn {
+                display: inline-block;
+                background-color: white;
+                color: var(--primary-color);
+                padding: 12px 25px;
+                border-radius: 30px;
+                font-weight: 600;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+            
+            .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+                color: var(--secondary-color);
+            }
+            
+            /* 文章列表 */
+            .blog-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 30px;
+                margin-bottom: 60px;
+            }
+            
+            .blog-card {
+                background-color: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            .blog-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .blog-image {
+                height: 200px;
+                background-size: cover;
+                background-position: center;
+            }
+            
+            .blog-content {
+                padding: 25px;
+            }
+            
+            .blog-date {
+                font-size: 0.85rem;
+                color: var(--light-text);
+                margin-bottom: 10px;
+            }
+            
+            .blog-title {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+                color: var(--dark-color);
+            }
+            
+            .blog-excerpt {
+                color: var(--light-text);
+                margin-bottom: 15px;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            
+            .read-more {
+                font-weight: 600;
+                font-size: 0.9rem;
+                display: inline-block;
+            }
+            
+            /* 关于部分 */
+            .about-section {
+                background-color: white;
+                padding: 80px 0;
+                margin-bottom: 60px;
+            }
+            
+            .about-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: center;
+            }
+            
+            .about-image {
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            .about-image img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 20px;
+                color: var(--dark-color);
+            }
+            
+            .about-text p {
+                margin-bottom: 20px;
+                color: var(--light-text);
+            }
+            
+            /* 页脚 */
+            footer {
+                background-color: var(--dark-color);
+                color: white;
+                padding: 60px 0 20px;
+            }
+            
+            .footer-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 40px;
+                margin-bottom: 40px;
+            }
+            
+            .footer-section h3 {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+                color: var(--light-color);
+            }
+            
+            .footer-links {
+                list-style: none;
+            }
+            
+            .footer-links li {
+                margin-bottom: 10px;
+            }
+            
+            .footer-links a {
+                color: rgba(255, 255, 255, 0.7);
+            }
+            
+            .footer-links a:hover {
+                color: white;
+            }
+            
+            .social-links {
+                display: flex;
+                gap: 15px;
+                margin-top: 20px;
+            }
+            
+            .social-links a {
+                display: inline-block;
+                color: white;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.1);
+                text-align: center;
+                line-height: 36px;
+                transition: background-color 0.3s ease;
+            }
+            
+            .social-links a:hover {
+                background-color: var(--primary-color);
+            }
+            
+            .copyright {
+                text-align: center;
+                padding-top: 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                color: rgba(255, 255, 255, 0.5);
+                font-size: 0.9rem;
+            }
+            
+            /* 响应式设计 */
+            @media screen and (max-width: 768px) {
+                .menu-toggle {
+                    display: block;
+                }
+                
+                .nav-links {
+                    position: fixed;
+                    top: 70px;
+                    left: 0;
+                    right: 0;
+                    background-color: white;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 20px;
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                    transform: translateY(-150%);
+                    opacity: 0;
+                    transition: all 0.3s ease;
+                }
+                
+                .nav-links.active {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+                
+                .nav-links li {
+                    margin: 15px 0;
+                }
+                
+                .about-container {
+                    grid-template-columns: 1fr;
+                }
+                
+                .hero h1 {
+                    font-size: 2rem;
+                }
+                
+                .hero p {
+                    font-size: 1rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 导航栏 -->
+        <header>
+            <div class="container">
+                <nav>
+                    <a href="/" class="logo">我的博客</a>
+                    <div class="menu-toggle">☰</div>
+                    <ul class="nav-links">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">文章</a></li>
+                        <li><a href="#">分类</a></li>
+                        <li><a href="#">关于我</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- 首页横幅 -->
+        <section class="hero">
+            <div class="container">
+                <h1>欢迎来到我的博客</h1>
+                <p>在这里，我分享我的想法、创作和生活点滴。感谢您的访问，希望您能找到对您有价值的内容。</p>
+                <a href="#" class="btn">浏览文章</a>
+            </div>
+        </section>
+        
+        <!-- 博客文章列表 -->
+        <section class="container">
+            <div class="blog-container">
+                <!-- 文章1 -->
+                <article class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://picsum.photos/600/400?random=1');"></div>
+                    <div class="blog-content">
+                        <div class="blog-date">2023年7月10日</div>
+                        <h2 class="blog-title">如何开始一个个人博客</h2>
+                        <p class="blog-excerpt">创建个人博客是展示您的想法、项目和专业知识的绝佳方式。本文将介绍如何从零开始建立一个专业的个人博客平台。</p>
+                        <a href="#" class="read-more">阅读更多 →</a>
+                    </div>
+                </article>
+                
+                <!-- 文章2 -->
+                <article class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://picsum.photos/600/400?random=2');"></div>
+                    <div class="blog-content">
+                        <div class="blog-date">2023年7月5日</div>
+                        <h2 class="blog-title">我最喜欢的5个网站开发工具</h2>
+                        <p class="blog-excerpt">作为一名网站开发者，有一些工具可以极大地提高我们的工作效率。这篇文章分享我个人最喜欢的五个开发工具和使用心得。</p>
+                        <a href="#" class="read-more">阅读更多 →</a>
+                    </div>
+                </article>
+                
+                <!-- 文章3 -->
+                <article class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://picsum.photos/600/400?random=3');"></div>
+                    <div class="blog-content">
+                        <div class="blog-date">2023年6月28日</div>
+                        <h2 class="blog-title">学习编程的5个有效方法</h2>
+                        <p class="blog-excerpt">无论您是初学者还是有经验的开发者，这些学习方法都能帮助您更快地掌握新的编程技能，提高您的专业水平。</p>
+                        <a href="#" class="read-more">阅读更多 →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- 关于部分 -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-container">
+                    <div class="about-image">
+                        <img src="https://picsum.photos/600/400?random=4" alt="关于我">
+                    </div>
+                    <div class="about-text">
+                        <h2 class="section-title">关于我</h2>
+                        <p>大家好，我是一名热爱技术的开发者。我喜欢探索新技术，解决问题，并通过这个博客分享我的所学所想。</p>
+                        <p>除了编程，我还喜欢摄影、阅读和户外活动。我相信生活中的各种体验都能为创作带来灵感。</p>
+                        <a href="#" class="btn">了解更多</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 页脚 -->
+        <footer>
+            <div class="container">
+                <div class="footer-container">
+                    <div class="footer-section">
+                        <h3>我的博客</h3>
+                        <p>分享技术、生活和创意的个人空间。</p>
+                        <div class="social-links">
+                            <a href="#">🌐</a>
+                            <a href="#">📱</a>
+                            <a href="#">📧</a>
+                            <a href="#">🔗</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>文章分类</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">技术教程</a></li>
+                            <li><a href="#">项目展示</a></li>
+                            <li><a href="#">学习笔记</a></li>
+                            <li><a href="#">生活感悟</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>快速链接</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">首页</a></li>
+                            <li><a href="#">关于我</a></li>
+                            <li><a href="#">联系方式</a></li>
+                            <li><a href="#">隐私政策</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    &copy; 2023 我的博客 | 保留所有权利
+                </div>
+            </div>
+        </footer>
+        
+        <script>
+            // 移动端导航菜单切换
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+        </script>
+    </body>
+    </html>
